@@ -12,8 +12,14 @@ def read_input(filename):
 
     return n, hospital_preferences, student_preferences
             
+
 def gale_shapley(filename):
     n, hospital_preferences, student_preferences = read_input(filename)
+
+    student_ranks = [[0] * n for _ in range(n)]
+    for s in range(n):
+        for rank, h in enumerate(student_preferences[s]):
+            student_ranks[s][h] = rank
 
     hospitals = [-1] * n
     students = [-1] * n
@@ -33,21 +39,32 @@ def gale_shapley(filename):
             students[s] = h
         else:
             current_hospital = students[s]
-            if student_preferences[s].index(h) < student_preferences[s].index(current_hospital):
+            if student_ranks[s][h] < student_ranks[s][current_hospital]:
                 hospitals[h] = s
                 students[s] = h
                 hospitals[current_hospital] = -1
                 free_hospitals.append(current_hospital)
             else:
                 free_hospitals.append(h)
-        
-    return hospitals, students
-        
-        
 
-
+    for i in range(len(hospitals)):
+        print(i, hospitals[i])
 
 
 
 if __name__ == "__main__":
-    print(gale_shapley('tests/test1.txt'))
+    gale_shapley('tests/test1.txt')
+    print("-----")
+    
+    gale_shapley('tests/test2.txt')
+    print("-----")
+
+    gale_shapley('tests/test3.txt')
+    print("-----")
+
+    gale_shapley('tests/test4.txt')
+    print("-----")
+
+    gale_shapley('tests/test5.txt')
+    print("-----")
+    
