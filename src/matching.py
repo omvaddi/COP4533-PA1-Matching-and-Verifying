@@ -1,3 +1,5 @@
+import random
+
 def read_input(filename):
     with open(filename, 'r') as f:
         n = int(f.readline().strip())
@@ -89,6 +91,18 @@ def verifier(hospitals, students, hospital_preferences, student_preferences):
                     return False, f"UNSTABLE: hospital {h}, student {s}"
                 
     return True, "VALID STABLE"
+
+def generate_input(filename, n):
+    with open(filename, "w") as f:
+        f.write(str(n) + "\n")
+        for _ in range(n):
+            prefs = list(range(n))
+            random.shuffle(prefs)
+            f.write(" ".join(map(str, prefs)) + "\n")
+        for _ in range(n):
+            prefs = list(range(n))
+            random.shuffle(prefs)
+            f.write(" ".join(map(str, prefs)) + "\n")
 
 if __name__ == "__main__":
     gale_shapley('tests/test1.txt')
