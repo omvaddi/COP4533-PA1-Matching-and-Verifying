@@ -2,11 +2,11 @@ Om Vaddi (15302285)
 Thomas Alvarado (65211333)
 
 Matcher Instructions:
-- Create a file in the tests folder
-- See assumptions section for file formatting
-- Run "python src/matcher.py"
-- Enter the filename when prompted
-- Read results
+- Create a file in the files folder.
+- See assumptions section for file formatting.
+- Run "python src/matcher.py".
+- Enter the file path when prompted. ex: files/file1.
+- Read results.
 
 
 Assumptions:
