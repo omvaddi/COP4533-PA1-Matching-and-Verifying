@@ -2,16 +2,16 @@ def verifier(hospitals, students, hospital_preferences, student_preferences):
     n = len(hospitals) - 1
 
     if 0 in hospitals[1:]:
-        return False, "INVALID: Unmatched hospital"
+        print("INVALID: Unmatched hospital")
     
     if 0 in students[1:]:
-        return False, "INVALID: Unmatched student"
+        print("INVALID: Unmatched student")
     
     if(len(set(hospitals[1:]))) != n:
-        return False, "INVALID: Student matched to multiple hospitals"
+        print("INVALID: Student matched to multiple hospitals")
     
     if(len(set(students[1:]))) != n:
-        return False, "INVALID: Hospital matched to multiple students"
+        print("INVALID: Hospital matched to multiple students")
     
     hospital_ranks = [[0] * (n + 1) for _ in range(n + 1)]
     student_ranks = [[0] * (n + 1) for _ in range(n + 1)]
@@ -32,6 +32,6 @@ def verifier(hospitals, students, hospital_preferences, student_preferences):
             if hospital_ranks[h][s] < hospital_ranks[h][current_student]:
                 current_hospital = students[s]
                 if student_ranks[s][h] < student_ranks[s][current_hospital]:
-                    return False, f"UNSTABLE: hospital {h}, student {s}"
+                    print(f"UNSTABLE: hospital {h}, student {s}")
                 
-    return True, "VALID STABLE"
+    print("VALID STABLE")

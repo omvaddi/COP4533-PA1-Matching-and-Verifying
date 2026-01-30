@@ -1,5 +1,6 @@
 import random
 from collections import deque
+import verifier
 
 def read_input(filename):
     with open(filename, 'r') as f:
@@ -69,4 +70,5 @@ def generate_input(filename, n):
 
 if __name__ == "__main__":
     filename = input("Enter input filename: ")
-    gale_shapley(filename)
+    output = gale_shapley(filename)
+    verifier.verifier(*output)
