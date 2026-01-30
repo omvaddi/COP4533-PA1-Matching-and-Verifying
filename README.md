@@ -5,7 +5,7 @@ Matcher Instructions:
 - Create a file in the files folder.
 - See assumptions section for file formatting.
 - Run "python src/matcher.py".
-- Enter the file path when prompted. ex: files/file1.
+- Enter the file path when prompted. ex: files/file1.txt.
 - Read results.
 
 
